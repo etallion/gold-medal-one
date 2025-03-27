@@ -1,0 +1,31 @@
+.NavBar {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  background: linear-gradient(
+    225deg,
+    rgb(243, 201, 128) 0%,
+    rgba(191, 185, 174, 1) 35%,
+    rgba(215, 186, 218, 1) 70%,
+    #ffffff 100%
+  );
+  opacity: 0.95;
+  width: 100%;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.title {
+  flex-basis: 100px;
+  text-align: center;
+  font-style: italic;
+  font-weight: 900;
+  color: rgb(121, 104, 93);
+  font-family: monospace;
+  padding-left: 10px;
+  padding-right: 10px;
+}

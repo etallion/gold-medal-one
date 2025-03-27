@@ -1,0 +1,68 @@
+.ContactForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  border: #20b0d4 solid 2px;
+}
+
+.ContactFormNew {
+  margin: 10px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow:
+    0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  max-width: 500px;
+  flex-basis: 300px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+  /* margin-bottom: 0 auto 10px 0 auto; */
+  width: 100%;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #da42c0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
+textarea {
+  padding: 5px;
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #6b20d4;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
