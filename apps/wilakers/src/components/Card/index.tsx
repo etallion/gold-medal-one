@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import styles from './Card.module.css';
+import styles from './Card.module.scss';
 
 const Card: Component = () => {
   const permissionRequest = () => {

@@ -1,8 +1,14 @@
-import { defineConfig } from 'vite';
-import solidPlugin from 'vite-plugin-solid';
+import { fileURLToPath } from 'node:url';
+import postcssVarCompress from 'postcss-variable-compress';
+import { defineConfig, Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
+import solidPlugin from 'vite-plugin-solid';
+
+const path_root = fileURLToPath(new URL('.', import.meta.url));
 
 export default defineConfig({
+  css: { modules: { exportGlobals: true }, preprocessorOptions: { scss: { api: 'modern-compiler' } }, devSourcemap: true, postcss: { plugins: [postcssVarCompress()] } }, //prettier-ignore
+
   plugins: [
     solidPlugin(),
     VitePWA({
@@ -34,6 +40,26 @@ export default defineConfig({
         ],
       },
     }),
+    // sassDts({
+    //   enabled: true,
+    //   outputDir: 'src/types',
+    //   fileName: 'sass.d.ts',
+    //   include: ['**/*.module.scss'],
+    // }),
+    // sassDts({ enabledMode: ['development', 'production'], esmExport: true, prettierFilePath: resolve(path_root, '.prettierrc') }), //prettier-ignore
+
+    {
+      name: 'vite-plugin-optimize-solid-css-modules',
+      enforce: 'pre',
+      transform(code, id) {
+        if (/\.[mc]?[jt]sx$/.test(id))
+          code = code.replace(
+            /class=\{([a-zA-Z '"`[\].-]+|(?:`(?:\$\{[a-zA-Z '"`[\].-]+\}\s*)+)`)\}/g, // eslint-disable-line regexp/no-useless-non-capturing-group
+            'class={/*@once*/$1}' //TODO: Tighten regex to avoid store. Allow 1 ./space?
+          );
+        return { code, map: null };
+      },
+    } as Plugin,
   ],
   server: {
     port: 3000,
@@ -41,5 +67,6 @@ export default defineConfig({
   build: {
     target: 'esnext',
     manifest: 'src/assets/manifest.json',
+    cssMinify: 'lightningcss',
   },
 });

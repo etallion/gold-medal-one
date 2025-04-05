@@ -1,6 +1,6 @@
 import type { Component } from 'solid-js';
 
-import styles from './ContactForm.module.css';
+import styles from './ContactForm.module.scss';
 
 const App: Component = () => {
   return (

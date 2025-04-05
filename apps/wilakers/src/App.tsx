@@ -1,9 +1,9 @@
 import type { Component } from 'solid-js';
 
-import styles from './App.module.css';
-import NavBar from './components/NavBar';
-import ContactForm from './components/ContactForm';
+import styles from './App.module.scss';
 import Card from './components/Card';
+import ContactForm from './components/ContactForm';
+import NavBar from './components/NavBar';
 
 const App: Component = () => {
   return (
