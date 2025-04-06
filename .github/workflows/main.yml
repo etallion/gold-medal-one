@@ -36,7 +36,7 @@ jobs:
         run:  cd apps/wilakers && pnpm wilakers:build
  
       - name: Deploy front-end to S3 bucket
-        run: aws s3 sync  cd apps/wilakers/dist/ s3://wilakers.com--delete
+        run: aws s3 sync  cd apps/wilakers/dist/ s3://wilakers.com --delete
 
       # - name: Invalidate CloudFront files
       #   run: aws cloudfront create-invalidation --distribution-id <replace me> --paths '/*'
