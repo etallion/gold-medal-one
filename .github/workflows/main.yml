@@ -6,6 +6,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v4
 
@@ -16,15 +17,20 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-      
-      - uses: pnpm/action-setup
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2
         with:
-         version: 9
+          version: 8
 
-      - run: cd apps/wilakers
-      - run: pnpm install
-      - run: wilakers:build
+      - name: Install dependencies
+        run: cd apps/wilakers && pnpm install
 
+      - name: Build front-end
+        run: wilakers:build
+ 
       - name: Deploy front-end to S3 bucket
         run: aws s3 sync dist/ s3://wilakers.com--delete
 
