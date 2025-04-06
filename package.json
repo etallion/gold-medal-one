@@ -9,7 +9,7 @@
     "format": "prettier --write .",
     "prepare": "husky",
     "common": "pnpm --filter common",
-    "app": "pnpm --filter web-app"
+    "app": "pnpm --filter apps"
   },
   "keywords": [],
   "author": "Will Mangimelli",
