@@ -21,10 +21,6 @@ jobs:
         with:
          version: 9
 
-      - uses: pnpm/action-setup
-        with:
-          node-version: 22
-
       - run: cd apps/wilakers
       - run: pnpm install
       - run: wilakers:build
