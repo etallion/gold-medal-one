@@ -15,9 +15,9 @@ export default defineConfig({
       registerType: 'prompt',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'websitename',
-        short_name: 'websitename',
-        description: 'Website description(Could be same with index.html file)',
+        name: 'Wilakers',
+        short_name: 'Wilakers',
+        description: 'Wilakers',
         theme_color: '#ffffff',
         start_url: '/',
         icons: [
@@ -69,4 +69,5 @@ export default defineConfig({
     manifest: 'src/assets/manifest.json',
     cssMinify: 'lightningcss',
   },
+  publicDir: 'public',
 });

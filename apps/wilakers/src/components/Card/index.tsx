@@ -1,4 +1,5 @@
 import type { Component } from 'solid-js';
+import logo from '../../../public/favicon-32x32.png';
 
 import styles from './Card.module.scss';
 
@@ -10,7 +11,7 @@ const Card: Component = () => {
     if (window.Notification.permission === 'granted') {
       new window.Notification('You have a new message', {
         body: 'Daddy and mommy love Olivia and Natalie',
-        icon: 'src/assets/favicon-32x32.png', // optional
+        icon: logo, // optional
       });
     }
   };
